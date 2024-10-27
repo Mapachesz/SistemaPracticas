@@ -23,19 +23,67 @@ function BitacoraForm() {
                     label="Hora Inicio" 
                     variant="outlined" 
                     fullWidth 
-                    InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                    InputProps={{ 
+                        style: { backgroundColor: '#121212', color: '#FFF' }
+                    }}
+                    InputLabelProps={{
+                        sx: {
+                            color: '#FFF', // Cambia el color del label
+                        },
+                    }}
+                    placeholder="Hora Inicio"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '&::placeholder': {
+                                color: '#FFF', // Placeholder blanco
+                                opacity: 1,
+                            },
+                        },
+                    }}
                 />
                 <TextField 
                     label="Horas Colación" 
                     variant="outlined" 
                     fullWidth 
-                    InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                    InputProps={{ 
+                        style: { backgroundColor: '#121212', color: '#FFF' }
+                    }}
+                    InputLabelProps={{
+                        sx: {
+                            color: '#FFF', // Cambia el color del label
+                        },
+                    }}
+                    placeholder="Horas Colación"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '&::placeholder': {
+                                color: '#FFF', // Placeholder blanco
+                                opacity: 1,
+                            },
+                        },
+                    }}
                 />
                 <TextField 
                     label="Hora Término" 
                     variant="outlined" 
                     fullWidth 
-                    InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                    InputProps={{ 
+                        style: { backgroundColor: '#121212', color: '#FFF' }
+                    }}
+                    InputLabelProps={{
+                        sx: {
+                            color: '#FFF', // Cambia el color del label
+                        },
+                    }}
+                    placeholder="Hora Término"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '&::placeholder': {
+                                color: '#FFF', // Placeholder blanco
+                                opacity: 1,
+                            },
+                        },
+                    }}
                 />
             </Box>
 
@@ -43,7 +91,23 @@ function BitacoraForm() {
                 label="Fecha" 
                 variant="outlined" 
                 fullWidth 
-                InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                InputProps={{ 
+                    style: { backgroundColor: '#121212', color: '#FFF' }
+                }}
+                InputLabelProps={{
+                    sx: {
+                        color: '#FFF', // Cambia el color del label
+                    },
+                }}
+                placeholder="Fecha"
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                        '&::placeholder': {
+                            color: '#FFF', // Placeholder blanco
+                            opacity: 1,
+                        },
+                    },
+                }}
             />
 
             <TextField 
@@ -52,7 +116,23 @@ function BitacoraForm() {
                 fullWidth 
                 multiline 
                 rows={4} 
-                InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                InputProps={{ 
+                    style: { backgroundColor: '#121212', color: '#FFF' }
+                }}
+                InputLabelProps={{
+                    sx: {
+                        color: '#FFF', // Cambia el color del label
+                    },
+                }}
+                placeholder="Trabajo Realizado"
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                        '&::placeholder': {
+                            color: '#FFF', // Placeholder blanco
+                            opacity: 1,
+                        },
+                    },
+                }}
             />
 
             <TextField 
@@ -61,7 +141,23 @@ function BitacoraForm() {
                 fullWidth 
                 multiline 
                 rows={4} 
-                InputProps={{ style: { backgroundColor: '#121212', color: '#FFF' } }}
+                InputProps={{ 
+                    style: { backgroundColor: '#121212', color: '#FFF' }
+                }}
+                InputLabelProps={{
+                    sx: {
+                        color: '#FFF', // Cambia el color del label
+                    },
+                }}
+                placeholder="Trabajo Por Hacer"
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                        '&::placeholder': {
+                            color: '#FFF', // Placeholder blanco
+                            opacity: 1,
+                        },
+                    },
+                }}
             />
 
             <Button 
