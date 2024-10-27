@@ -3,10 +3,12 @@ import Sidebar from '../components/sidebar';
 import Header from '../components/header';
 import PracticeCard from '../components/practicecard';
 import CustomButton from '../components/button';
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, useTheme, useMediaQuery } from '@mui/material';
 
 function Dashboard() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleSidebarToggle = () => {
         setSidebarOpen(!isSidebarOpen);
@@ -19,12 +21,16 @@ function Dashboard() {
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#121212' }}>
             {/* Sidebar para pantallas grandes */}
-            <Box sx={{ display: { xs: 'none', md: 'block' }, width: '250px' }}>
-                <Sidebar />
-            </Box>
+            {!isSmallScreen && (
+                <Box sx={{ width: '250px' }}>
+                    <Sidebar />
+                </Box>
+            )}
 
             {/* Drawer para pantallas pequeñas */}
-            <Sidebar open={isSidebarOpen} onClose={handleSidebarClose} />
+            {isSmallScreen && (
+                <Sidebar open={isSidebarOpen} onClose={handleSidebarClose} />
+            )}
 
             <Box sx={{ flex: 1, padding: '20px', color: '#FFF' }}>
                 <Header onMenuClick={handleSidebarToggle} />
@@ -33,15 +39,11 @@ function Dashboard() {
                 </Typography>
                 <Stack
                     spacing={2}
-                    direction={{ xs: 'column', md: 'row' }}
+                    direction="column" // Siempre en columna
                     sx={{ marginTop: '10px' }}
                 >
-                    <Box sx={{ flex: 1 }}>
-                        <PracticeCard title="Práctica Industrial" status="En Proceso" statusColor="#FFF" />
-                    </Box>
-                    <Box sx={{ flex: 1 }}>
-                        <PracticeCard title="Práctica Profesional" status="No Iniciada" statusColor="#FF5722" />
-                    </Box>
+                    <PracticeCard title="Práctica Industrial" status="En Proceso" statusColor="#FFF" />
+                    <PracticeCard title="Práctica Profesional" status="No Iniciada" statusColor="#FF5722" />
                 </Stack>
                 <Box display="flex" justifyContent="flex-end" marginTop="20px">
                     <CustomButton 
