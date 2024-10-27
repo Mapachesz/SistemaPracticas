@@ -1,10 +1,14 @@
 import React from 'react';
 import CustomButton from '../components/button';
 import { Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+
+    const navigate = useNavigate();
+
     const handleStudentClick = () => {
-        alert('Iniciar sesión como Estudiante');
+      navigate('/dashboard');
     };
 
     const handleCompanyClick = () => {
