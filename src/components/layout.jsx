@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import HomePage from '../pages/home_page'
 import Dashboard from '../pages/dashboard';
+import BitacoraPage from '../pages/bitacora_page';
 
 const Layout = () => {
   return (
