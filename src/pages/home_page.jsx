@@ -1,5 +1,3 @@
-// src/pages/HomePage.jsx
-
 import React from 'react';
 import CustomButton from '../components/button';
 import { Stack } from '@mui/material';
