@@ -8,7 +8,6 @@ const Layout = () => {
     <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/lightbulb' element={<LightbulbPage />} />
           </Routes>
     </BrowserRouter>
   )
