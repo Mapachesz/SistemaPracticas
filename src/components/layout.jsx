@@ -10,6 +10,7 @@ const Layout = () => {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/bitacora" element={<BitacoraPage />} />
           </Routes>
     </BrowserRouter>
   )
