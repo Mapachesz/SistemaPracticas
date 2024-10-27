@@ -18,21 +18,25 @@ function BitacoraPage() {
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                        alignItems: 'center',
-                        height: 'calc(100vh - 160px)', // Ajusta la altura para que se tenga en cuenta el header y padding
+                        alignItems: 'flex-start', // Alineamos el formulario en la parte superior
+                        minHeight: 'calc(100vh - 160px)', // Ajusta la altura para que se tenga en cuenta el header
                         marginTop: '20px',
+                        paddingX: '10px', // Añade padding lateral para pantallas pequeñas
                     }}
                 >
                     <Box
                         sx={{
                             width: '100%',
-                            maxWidth: '1200px', // Limita el ancho en pantallas grandes
-                            height: '100%',
-                            padding: '20px',
-                            backgroundColor: '#333',
-                            borderRadius: '8px',
-                            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                            maxWidth: '1280px', // Limita el ancho en pantallas grandes
+                            marginTop: { xs: '20px', md: '40px' }, // Ajuste de margen superior para evitar que se tape
+                            padding: '0',
+                            borderRadius: '0',
+                            boxShadow: 'none',
                             overflow: 'auto', // Permite scroll si el contenido excede la altura
+                            display: 'flex',
+                            justifyContent: 'center', // Centra el formulario
+                            alignItems: 'center', // Centra verticalmente en el contenedor
+                            padding: { xs: '10px', md: '0' }, // Añade padding en pantallas pequeñas para que no se corte
                         }}
                     >
                         <BitacoraForm />
