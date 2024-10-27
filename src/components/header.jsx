@@ -1,9 +1,15 @@
-// src/components/header.jsx
-
 import React from 'react';
 import { AppBar, Toolbar, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function Header({ onLogout }) {
+
+function Header(){
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/');
+    };
     return (
         <AppBar 
             position="static" 
@@ -12,7 +18,7 @@ function Header({ onLogout }) {
             <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
                     color="inherit"
-                    onClick={onLogout}
+                    onClick={handleClick}
                     sx={{ fontWeight: 'bold' }}
                 >
                     Cerrar Sesión
