@@ -6,7 +6,7 @@ function PracticeCard({ title, status, statusColor }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/');
+        navigate('/bitacora');
     };
     return (
         <Card onClick={handleClick}  sx={{ backgroundColor: '#333', margin: '10px 0', display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
