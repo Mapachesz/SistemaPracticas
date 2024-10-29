@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer, Box, List, ListItem, ListItemText, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { useLocation } from 'react-router-dom';
-import MenuIconButton from './menuiconbutton'; // Asegúrate de que esta importación esté correcta.
+import { useLocation, Link } from 'react-router-dom';
+import MenuIconButton from './menuiconbutton';
+import logoinf from '../assets/logoinf.png';
+import SchoolIcon from '@mui/icons-material/School';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import BusinessIcon from '@mui/icons-material/Business';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import HistoryIcon from '@mui/icons-material/History';
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
-    const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const location = useLocation();
 
     useEffect(() => {
@@ -22,24 +29,62 @@ function Sidebar() {
     };
 
     const menuItems = [
-        'Prácticas',
-        'Mi Perfil',
-        'Ofertas',
-        'Empresas',
-        'Estadísticas',
-        'Historial Postulaciones'
+        { text: 'Prácticas', icon: <SchoolIcon sx={{ color: '#FFF' }} />, path: '/dashboard' },
+        { text: 'Mi Perfil', icon: <AccountCircleIcon sx={{ color: '#FFF' }} />}, //,path: '/perfil' },
+        { text: 'Ofertas', icon: <BusinessCenterIcon sx={{ color: '#FFF' }} />, path: '/ofertas' },
+        { text: 'Empresas', icon: <BusinessIcon sx={{ color: '#FFF' }} />, path: '/empresas' },
+        { text: 'Estadísticas', icon: <BarChartIcon sx={{ color: '#FFF' }} />},//, path: '/estadisticas' },
+        { text: 'Historial Postulaciones', icon: <HistoryIcon sx={{ color: '#FFF' }} />, path: '/historial' },
     ];
 
-    // Función que renderiza el contenido del sidebar
     const renderSidebarContent = () => (
-        <Box sx={{ width: '250px', padding: '16px' }}>
-            <Typography variant="h6" gutterBottom>
-                Sistema de Prácticas
+        <Box sx={{ width: '250px', padding: '16px', marginTop: 2 }}>
+            {/* Logo y título */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginBottom: 1 }}>
+                <Box
+                    component="img"
+                    src={logoinf}
+                    alt="Logo del departamento"
+                    sx={{
+                        width: { xs: '30px', md: '30px' },
+                        height: 'auto',
+                    }}
+                />
+                <Typography 
+                    variant="h6" 
+                    gutterBottom
+                    sx={{
+                        fontSize: { xs: '1.1rem', md: '1.1rem' },
+                        fontWeight: 'bold',
+                        color: '#FFF'
+                    }}>
+                    Sistema de Prácticas
+                </Typography>
+            </Box>
+            <Typography variant="subtitle2" sx={{ fontSize: { xs: '0.9rem', md: '0.9rem' }, color: '#BBB', marginBottom: 2 }}>
+                Departamento de Informática USM
             </Typography>
+
+            {/* Espacio entre el título y el menú */}
+            <Box sx={{ marginBottom: 3 }} /> {/* Aquí se agrega un espacio extra */}
+
+            {/* Menú */}
             <List>
                 {menuItems.map((item, index) => (
-                    <ListItem button key={index} onClick={handleClose}>
-                        <ListItemText primary={item} />
+                    <ListItem
+                        button
+                        key={index}
+                        component={Link}
+                        to={item.path}
+                        onClick={handleClose}
+                        sx={{
+                            '&:hover': {
+                                backgroundColor: '#ff5757',
+                            },
+                        }}
+                    >
+                        {item.icon}
+                        <ListItemText primary={item.text} sx={{ color: '#FFF', marginLeft: 1 }} />
                     </ListItem>
                 ))}
             </List>
@@ -48,9 +93,9 @@ function Sidebar() {
 
     return (
         <>
-            {isLargeScreen ? (
-                // Sidebar fijo para pantallas grandes
-                <Box sx={{ width: '250px', backgroundColor: '#333', color: '#FFF', height: '100vh', position: 'fixed' }}>
+            {/* Sidebar siempre visible en pantallas medianas y grandes */}
+            {!isSmallScreen ? (
+                <Box sx={{ width: '250px', backgroundColor: '#1a1a1a', color: '#FFF', height: '100vh', position: 'fixed' }}>
                     {renderSidebarContent()}
                 </Box>
             ) : (
@@ -61,7 +106,7 @@ function Sidebar() {
                     onClose={handleClose}
                     ModalProps={{ keepMounted: true }}
                     sx={{
-                        '& .MuiDrawer-paper': { width: '250px', backgroundColor: '#333', color: '#FFF' },
+                        '& .MuiDrawer-paper': { width: '250px', backgroundColor: '#1a1a1a', color: '#FFF' },
                     }}
                 >
                     {renderSidebarContent()}
@@ -69,7 +114,7 @@ function Sidebar() {
             )}
 
             {/* Botón de menú para pantallas pequeñas */}
-            {!isLargeScreen && (
+            {isSmallScreen && (
                 <Box
                     sx={{
                         position: 'fixed',

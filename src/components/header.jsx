@@ -2,14 +2,19 @@ import React from 'react';
 import { AppBar, Toolbar, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-
-function Header(){
-
+function Header() {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/');
+        // Muestra un cuadro de confirmación
+        const confirmLogout = window.confirm("¿Estás seguro de que deseas cerrar sesión?");
+        if (confirmLogout) {
+            // Si el usuario confirma, redirige a la página de inicio o de cierre de sesión
+            navigate('/');
+        }
+        // Si el usuario cancela, no hace nada
     };
+
     return (
         <AppBar 
             position="static" 

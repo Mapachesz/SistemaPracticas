@@ -8,9 +8,10 @@ function BitacoraPage() {
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#121212' }}>
             <Sidebar />
-            <Box sx={{ flex: 1, padding: '20px', color: '#FFF', marginLeft: { md: '250px' } }}>
+            <Box sx={{ flex: 1, padding: '10px', color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-                <Typography variant="h5" gutterBottom sx={{ marginTop: '20px', textAlign: 'left' }}>
+            <Box sx={{ flex: 1, padding: '40px', color: '#FFF' }}>
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold'}}>
                     Bitácora
                 </Typography>
                 
@@ -20,7 +21,7 @@ function BitacoraPage() {
                         justifyContent: 'center',
                         alignItems: 'flex-start', // Alineamos el formulario en la parte superior
                         minHeight: 'calc(100vh - 160px)', // Ajusta la altura para que se tenga en cuenta el header
-                        marginTop: '20px',
+                        //marginTop: '20px',
                         paddingX: '10px', // Añade padding lateral para pantallas pequeñas
                     }}
                 >
@@ -28,7 +29,7 @@ function BitacoraPage() {
                         sx={{
                             width: '100%',
                             maxWidth: '1280px', // Limita el ancho en pantallas grandes
-                            marginTop: { xs: '20px', md: '40px' }, // Ajuste de margen superior para evitar que se tape
+                            marginTop: { xs: '10px', md: '10px' }, // Ajuste de margen superior para evitar que se tape
                             padding: '0',
                             borderRadius: '0',
                             boxShadow: 'none',
@@ -40,6 +41,7 @@ function BitacoraPage() {
                         }}
                     >
                         <BitacoraForm />
+                    </Box>
                     </Box>
                 </Box>
             </Box>
