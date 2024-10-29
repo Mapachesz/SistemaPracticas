@@ -37,6 +37,7 @@ const ofertasData = [
 
 function DetalleOferta() {
     const { offerId } = useParams(); // Captura el ID de la oferta de la URL
+    console.log(offerId);
     const navigate = useNavigate(); 
 
     const oferta = ofertasData.find(oferta => oferta.id === offerId); // Busca la oferta correspondiente

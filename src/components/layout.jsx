@@ -9,6 +9,7 @@ import Empresas from '../pages/empresas';
 import DetalleOferta from './detalleoferta';
 import PostulacionExitosa from './PostulacionExistosa';
 import DetalleEmpresa from './detalleempresa';
+import HistorialPostulaciones from '../pages/historial_postulaciones';
 
 const Layout = () => {
   return (
@@ -22,6 +23,7 @@ const Layout = () => {
             <Route path="/detalle-oferta/:offerId" element={<DetalleOferta />} />
             <Route path="/postulacion-exitosa" element={<PostulacionExitosa />} />
             <Route path="/detalle-empresa/:empresaId" element={<DetalleEmpresa />} />
+            <Route path="/historial" element={<HistorialPostulaciones />} />
           </Routes>
     </BrowserRouter>
   )

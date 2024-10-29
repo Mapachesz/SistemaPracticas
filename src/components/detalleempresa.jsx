@@ -1,7 +1,82 @@
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/sidebar';
 import { Box, Typography, Button } from '@mui/material';
 import Header from '../components/header';
+
+// Datos de ejemplo
+const empresasData = [
+    {
+        id: 'Empresa 1',
+        nombreEmpresa: 'Tech Innovations S.A.',
+        tamañoEmpresa: 'Mediana',
+        antiguedad: '5 años',
+        campoLaboral: 'Tecnología de la Información',
+        ubicacion: 'Santiago, Chile',
+        alcance: 'Nacional',
+        remuneracionProm: '$1.200,000 CLP',
+        ofertasVigentes: 3,
+        numeroContacto: '+56 9 1234 5678',
+        correo: 'contacto.techinnovations.cl',
+        calificacion: '4.6/5'
+    },
+    {
+        id: 'Empresa 2',
+        nombreEmpresa: 'Marketing Solutions Ltd.',
+        tamañoEmpresa: 'Grande',
+        antiguedad: '8 años',
+        campoLaboral: 'Marketing Digital',
+        ubicacion: 'Valparaíso, Chile',
+        alcance: 'Internacional',
+        remuneracionProm: '$500,000 CLP',
+        ofertasVigentes: 5,
+        numeroContacto: '+56 9 2345 6789',
+        correo: 'info.marketingsolutions.cl',
+        calificacion: '4.8/5'
+    },
+    {
+        id: 'Empresa 3',
+        nombreEmpresa: 'Finanzas y Consultoría S.A.',
+        tamañoEmpresa: 'Pequeña',
+        antiguedad: '3 años',
+        campoLaboral: 'Finanzas',
+        ubicacion: 'Concepción, Chile',
+        alcance: 'Nacional',
+        remuneracionProm: '$1.000,000 CLP',
+        ofertasVigentes: 2, // Número de ofertas vigentes
+        numeroContacto: '+56 9 3456 7890', // Número de contacto
+        correo: 'contacto@finanzasyconsultoria.cl', // Correo electrónico
+        calificacion: '4.3/5', // Calificación de la empresa
+    },
+    {
+        id: 'Empresa 4',
+        nombreEmpresa: 'Diseño Creativo Ltd.',
+        tamañoEmpresa: 'Mediana',
+        antiguedad: '4 años',
+        campoLaboral: 'Diseño Gráfico',
+        ubicacion: 'La Serena, Chile',
+        alcance: 'Regional',
+        remuneracionProm: '$900,000 CLP',
+        ofertasVigentes: 1, // Número de ofertas vigentes
+        numeroContacto: '+56 9 4567 8901', // Número de contacto
+        correo: 'info@disenocreativo.cl', // Correo electrónico
+        calificacion: '4.5/5', // Calificación de la empresa
+    },
+    {
+        id: 'Empresa 5',
+        nombreEmpresa: 'Salud Digital S.A.',
+        tamañoEmpresa: 'Grande',
+        antiguedad: '10 años',
+        campoLaboral: 'Tecnología de la Información',
+        ubicacion: 'Santiago, Chile',
+        alcance: 'Nacional',
+        remuneracionProm: '$1.800,000 CLP',
+        ofertasVigentes: 4, // Número de ofertas vigentes
+        numeroContacto: '+56 9 5678 9012', // Número de contacto
+        correo: 'contacto@saluddigital.cl', // Correo electrónico
+        calificacion: '4.9/5', // Calificación de la empresa
+    },
+];
 
 function DetalleEmpresa() {
     const { empresaId } = useParams(); // Captura el ID de la empresa de la URL
@@ -96,6 +171,8 @@ function DetalleEmpresa() {
                         >
                             Regresar
                         </Button>
+
+                        {/* Botón para buscar ofertas */}
                         <Button
                             variant="contained"
                             onClick={() => navigate('/ofertas')}
@@ -109,7 +186,7 @@ function DetalleEmpresa() {
                                 width: { xs: '100%', sm: '150px' },
                             }}
                         >
-                            Buscar ofertas
+                            Ofertas
                         </Button>
                     </Box>
                 </Box>

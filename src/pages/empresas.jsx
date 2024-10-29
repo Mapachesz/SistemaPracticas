@@ -97,9 +97,9 @@ function Empresas() {
 
                     {/* Lista de Empresas */}
                     <Stack spacing={2}>
-                        {empresasData.map((empresa) => (
+                        {empresasData.map((empresa, index) => (
                             <Box
-                                key={empresa.id}
+                                key={index}
                                 sx={{
                                     backgroundColor: '#333333',
                                     padding: '16px',
