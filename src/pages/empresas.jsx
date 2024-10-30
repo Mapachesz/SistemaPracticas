@@ -17,10 +17,10 @@ function Empresas() {
             ubicacion: 'Santiago, Chile',
             alcance: 'Nacional',
             remuneracionProm: '$1.200,000 CLP',
-            ofertasVigentes: 3, // Número de ofertas vigentes
-            numeroContacto: '+56 9 1234 5678', // Número de contacto
-            correo: 'contacto@techinnovations.cl', // Correo electrónico
-            calificacion: '4.6/5', // Calificación de la empresa
+            ofertasVigentes: 3, 
+            numeroContacto: '+56 9 1234 5678', 
+            correo: 'contacto@techinnovations.cl', 
+            calificacion: '4.6/5', 
         },
         {
             id: 'Empresa 2',
@@ -73,10 +73,10 @@ function Empresas() {
             ubicacion: 'Santiago, Chile',
             alcance: 'Nacional',
             remuneracionProm: '$1.800,000 CLP',
-            ofertasVigentes: 4, // Número de ofertas vigentes
-            numeroContacto: '+56 9 5678 9012', // Número de contacto
-            correo: 'contacto@saluddigital.cl', // Correo electrónico
-            calificacion: '4.9/5', // Calificación de la empresa
+            ofertasVigentes: 4, 
+            numeroContacto: '+56 9 5678 9012', 
+            correo: 'contacto@saluddigital.cl', 
+            calificacion: '4.9/5', 
         },
     ];
     
@@ -109,7 +109,7 @@ function Empresas() {
                                         backgroundColor: '#444444',
                                     },
                                 }}
-                                onClick={() => goToempresaDetails(empresa.id)} // Asegúrate de que sea empresa.id
+                                onClick={() => goToempresaDetails(empresa.id)}
                             >
                                 <Typography variant="h6" sx={{ color: '#FFF', fontWeight: 'bold', textDecoration: 'underline' }}>
                                     {empresa.nombreEmpresa}
@@ -127,6 +127,7 @@ function Empresas() {
                                 backgroundColor: '#FF5722',
                                 color: '#FFF',
                                 width: '150px',
+                                fontWeight: 'bold',
                                 '&:hover': { backgroundColor: '#ff7043' }
                             }}
                         >

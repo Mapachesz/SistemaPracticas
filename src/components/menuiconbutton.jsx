@@ -2,15 +2,20 @@ import React from 'react';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-function MenuIconButton() {
+function MenuIconButton({ open, onClick }) {
     return (
-        <IconButton
-            color="inherit" // Asegúrate de que herede el color blanco del AppBar
-            aria-label="open drawer"
-            sx={{ color: '#FFFFFF' }} // Ajuste de color blanco para el ícono
-        >
-            <MenuIcon />
-        </IconButton>
+        <>
+            {!open && ( // Muestra el botón solo si `open` es `false`
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    sx={{ color: '#FFFFFF' }}
+                    onClick={onClick} // Llama a la función `onClick` pasada como prop
+                >
+                    <MenuIcon />
+                </IconButton>
+            )}
+        </>
     );
 }
 

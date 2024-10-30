@@ -93,6 +93,7 @@ function Ofertas() {
                             sx={{
                                 backgroundColor: '#FF5722',
                                 color: '#FFF',
+                                fontWeight: 'bold',
                                 '&:hover': { backgroundColor: '#ff7043' }
                             }}
                         >
@@ -166,7 +167,7 @@ function Ofertas() {
                                         backgroundColor: '#444444',
                                     },
                                 }}
-                                onClick={() => goToOfferDetails(oferta.id)} // Redirige usando el ID de la oferta
+                                onClick={() => goToOfferDetails(oferta.id)} 
                             >
                                 <Typography variant="h6" sx={{ color: '#FFF', fontWeight: 'bold', textDecoration: 'underline' }}>
                                     {oferta.id}
@@ -187,6 +188,7 @@ function Ofertas() {
                                 backgroundColor: '#FF5722',
                                 color: '#FFF',
                                 width: '150px',
+                                fontWeight: 'bold',
                                 '&:hover': { backgroundColor: '#ff7043' }
                             }}
                         >

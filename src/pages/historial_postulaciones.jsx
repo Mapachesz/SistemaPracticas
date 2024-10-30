@@ -43,23 +43,35 @@ function HistorialPostulaciones() {
     ];
 
     return (
-        <Box sx={{ display: 'flex' , minHeight: '100vh', background: '#121212'}}>
+        <Box sx={{ display: 'flex', minHeight: '100vh', background: '#121212' }}>
             <Sidebar />
-            <Box sx={{ flex: 1, padding: '10px', color: '#FFF', marginLeft: {md: '250px'} }}>
+            <Box sx={{ flex: 1, padding: { xs: '10px', md: '20px' }, color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-                <Box sx={{ flex: 1, padding: '40px', color: '#FFF' }}>
-                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold' }}>
+                <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
+                    <Typography 
+                        variant="h4" 
+                        gutterBottom 
+                        sx={{ 
+                            fontWeight: 'bold', 
+                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                            textAlign: { xs: 'center', md: 'left' }
+                        }}
+                    >
                         Historial Postulaciones
                     </Typography>
 
                     {/* Lista de Postulaciones */}
                     <Stack spacing={2}>
                         {postulacionesData.map((postulacion) => (
-                            <Box 
+                            <Box
                                 key={postulacion.id}
-                                sx={{ background: '#333', 
-                                      padding: '20px', 
-                                      borderRadius: '10px' 
+                                sx={{
+                                    background: '#333',
+                                    padding: { xs: '16px', md: '20px' },
+                                    borderRadius: '10px',
+                                    textAlign: 'left',
+                                    maxWidth: { xs: '100%', md: '600px' },
+                                    margin: '0 auto'
                                 }}
                             >
                                 <Typography variant="h6" sx={{ color: '#FFF', fontWeight: 'bold' }}>
@@ -81,15 +93,16 @@ function HistorialPostulaciones() {
                         ))}
                     </Stack>
 
-                    {/* Botón de "Ofertas" en la esquina inferior derecha */}
-                    <Box display="flex" justifyContent="flex-end" marginTop="20px">
+                    {/* Botón de "Ofertas" */}
+                    <Box display="flex" justifyContent={{ xs: 'center', md: 'flex-end' }} marginTop="20px">
                         <Button
                             variant="contained"
                             onClick={() => navigate('/ofertas')}
                             sx={{
                                 backgroundColor: '#FF5722',
                                 color: '#FFF',
-                                width: '150px',
+                                width: { xs: '100%', sm: '150px' },
+                                fontWeight: 'bold',
                                 '&:hover': { backgroundColor: '#ff7043' }
                             }}
                         >

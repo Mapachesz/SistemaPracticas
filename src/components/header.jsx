@@ -24,7 +24,12 @@ function Header() {
                 <Button
                     color="inherit"
                     onClick={handleClick}
-                    sx={{ fontWeight: 'bold' }}
+                    sx={{ fontWeight: 'bold',
+                        '&:hover': {
+                            textDecoration: 'underline',
+                            backgroundColor: '#ff7043'
+                        },
+                     }}
                 >
                     Cerrar Sesión
                 </Button>

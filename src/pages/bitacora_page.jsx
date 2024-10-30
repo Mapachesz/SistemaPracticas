@@ -8,10 +8,18 @@ function BitacoraPage() {
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#121212' }}>
             <Sidebar />
-            <Box sx={{ flex: 1, padding: '10px', color: '#FFF', marginLeft: { md: '250px' } }}>
+            <Box sx={{ flex: 1, padding: { xs: '0px', md: '20px' }, color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-            <Box sx={{ flex: 1, padding: '40px', color: '#FFF' }}>
-                <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold'}}>
+                <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
+                <Typography 
+                        variant="h4" 
+                        gutterBottom 
+                        sx={{ 
+                            fontWeight: 'bold', 
+                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                            textAlign: { xs: 'center', md: 'left' }
+                        }}
+                    >
                     Bitácora
                 </Typography>
                 
@@ -21,7 +29,7 @@ function BitacoraPage() {
                         justifyContent: 'center',
                         alignItems: 'flex-start', // Alineamos el formulario en la parte superior
                         minHeight: 'calc(100vh - 160px)', // Ajusta la altura para que se tenga en cuenta el header
-                        //marginTop: '20px',
+                        marginTop: '20px',
                         paddingX: '10px', // Añade padding lateral para pantallas pequeñas
                     }}
                 >

@@ -63,18 +63,27 @@ function DetalleOferta() {
             <Sidebar />
             <Box sx={{ flex: 1, padding: '10px', color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-                <Box sx={{ flex: 1, padding: '40px', color: '#FFF' }}>
-                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', marginBottom: 4 }}>
+                <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
+                    <Typography 
+                        variant="h4" 
+                        gutterBottom 
+                        sx={{ 
+                            fontWeight: 'bold', 
+                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                            textAlign: { xs: 'center', md: 'left' }
+                        }}
+                    >
                         Detalles de {oferta.id}
                     </Typography>
 
                     {/* Detalles Empresa Ofertante */}
                     <Box sx={{
-                        backgroundColor: '#333',
-                        padding: '20px',
-                        borderRadius: '8px',
-                        marginBottom: '20px',
-                    }}>
+                            backgroundColor: '#333',
+                            padding: { xs: '16px', md: '20px' },
+                            borderRadius: '8px',
+                            marginBottom: '20px',
+                        }}
+                    >
                         <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFF' }}>
                             Detalles Empresa Ofertante
                         </Typography>
@@ -97,11 +106,12 @@ function DetalleOferta() {
 
                     {/* Detalles de la Oferta */}
                     <Box sx={{
-                        backgroundColor: '#333',
-                        padding: '20px',
-                        borderRadius: '8px',
-                        marginBottom: '20px',
-                    }}>
+                            backgroundColor: '#333',
+                            padding: { xs: '16px', md: '20px' },
+                            borderRadius: '8px',
+                            marginBottom: '20px',
+                        }}
+                    >
                         <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFF' }}>
                             Detalles de la Oferta
                         </Typography>
@@ -126,7 +136,7 @@ function DetalleOferta() {
                     </Box>
 
                     {/* Botones de navegación */}
-                    <Box display="flex" justifyContent="flex-end" marginTop="20px" gap={2}>
+                    <Box display="flex" justifyContent={{ xs: 'center', md: 'flex-end' }} marginTop="20px" gap={2}>
                         {/* Botón para regresar */}
                         <Button
                             variant="contained"
@@ -135,10 +145,10 @@ function DetalleOferta() {
                                 backgroundColor: '#FF5722',
                                 color: '#FFF',
                                 fontWeight: 'bold',
+                                width: { xs: '100%', sm: '150px' },
                                 '&:hover': {
                                     backgroundColor: '#ff7043',
                                 },
-                                width: { xs: '100%', sm: '150px' },
                             }}
                         >
                             Regresar
@@ -149,11 +159,11 @@ function DetalleOferta() {
                             variant="contained"
                             onClick={handleOpenDialog} // Abre el diálogo de confirmación
                             sx={{
-                                backgroundColor: '#ff4500',
+                                backgroundColor: '#478a0a',
                                 color: '#FFF',
                                 fontWeight: 'bold',
                                 '&:hover': {
-                                    backgroundColor: '#ff5722',
+                                    backgroundColor: '#639d2f',
                                 },
                                 width: { xs: '100%', sm: '150px' },
                             }}

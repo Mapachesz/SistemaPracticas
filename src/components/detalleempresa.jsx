@@ -43,10 +43,10 @@ const empresasData = [
         ubicacion: 'Concepción, Chile',
         alcance: 'Nacional',
         remuneracionProm: '$1.000,000 CLP',
-        ofertasVigentes: 2, // Número de ofertas vigentes
-        numeroContacto: '+56 9 3456 7890', // Número de contacto
-        correo: 'contacto@finanzasyconsultoria.cl', // Correo electrónico
-        calificacion: '4.3/5', // Calificación de la empresa
+        ofertasVigentes: 2,
+        numeroContacto: '+56 9 3456 7890', 
+        correo: 'contacto@finanzasyconsultoria.cl', 
+        calificacion: '4.3/5',
     },
     {
         id: 'Empresa 4',
@@ -57,10 +57,10 @@ const empresasData = [
         ubicacion: 'La Serena, Chile',
         alcance: 'Regional',
         remuneracionProm: '$900,000 CLP',
-        ofertasVigentes: 1, // Número de ofertas vigentes
-        numeroContacto: '+56 9 4567 8901', // Número de contacto
-        correo: 'info@disenocreativo.cl', // Correo electrónico
-        calificacion: '4.5/5', // Calificación de la empresa
+        ofertasVigentes: 1,
+        numeroContacto: '+56 9 4567 8901', 
+        correo: 'info@disenocreativo.cl', 
+        calificacion: '4.5/5', 
     },
     {
         id: 'Empresa 5',
@@ -71,10 +71,10 @@ const empresasData = [
         ubicacion: 'Santiago, Chile',
         alcance: 'Nacional',
         remuneracionProm: '$1.800,000 CLP',
-        ofertasVigentes: 4, // Número de ofertas vigentes
-        numeroContacto: '+56 9 5678 9012', // Número de contacto
-        correo: 'contacto@saluddigital.cl', // Correo electrónico
-        calificacion: '4.9/5', // Calificación de la empresa
+        ofertasVigentes: 4, 
+        numeroContacto: '+56 9 5678 9012', 
+        correo: 'contacto@saluddigital.cl', 
+        calificacion: '4.9/5', 
     },
 ];
 
@@ -104,17 +104,25 @@ function DetalleEmpresa() {
             <Sidebar />
             <Box sx={{ flex: 1, padding: '10px', color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-                <Box sx={{ flex: 1, padding: '40px', color: '#FFF' }}>
-                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', marginBottom: 4 }}>
+                <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
+                    <Typography 
+                        variant="h4" 
+                        gutterBottom 
+                        sx={{ 
+                            fontWeight: 'bold', 
+                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                            textAlign: { xs: 'center', md: 'left' }
+                        }}
+                    >                   
                         Detalles de {empresa.nombreEmpresa} {/* Usar nombre de la empresa para mostrar */}
                     </Typography>
 
                     {/* Detalles Empresa Ofertante */}
                     <Box sx={{
-                        backgroundColor: '#333',
-                        padding: '20px',
-                        borderRadius: '8px',
-                        marginBottom: '20px',
+                            backgroundColor: '#333',
+                            padding: { xs: '16px', md: '20px' },
+                            borderRadius: '8px',
+                            marginBottom: '20px',
                     }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFF' }}>
                             Detalles Empresa
@@ -177,16 +185,16 @@ function DetalleEmpresa() {
                             variant="contained"
                             onClick={() => navigate('/ofertas')}
                             sx={{
-                                backgroundColor: '#ff4500',
+                                backgroundColor: '#FF5722',
                                 color: '#FFF',
                                 fontWeight: 'bold',
                                 '&:hover': {
-                                    backgroundColor: '#ff5722',
+                                    backgroundColor: '#ff7043',
                                 },
-                                width: { xs: '100%', sm: '150px' },
+                                width: { xs: '100%', sm: '200px' },
                             }}
                         >
-                            Ofertas
+                            Buscar Ofertas
                         </Button>
                     </Box>
                 </Box>

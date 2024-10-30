@@ -30,16 +30,15 @@ function Sidebar() {
 
     const menuItems = [
         { text: 'Prácticas', icon: <SchoolIcon sx={{ color: '#FFF' }} />, path: '/dashboard' },
-        { text: 'Mi Perfil', icon: <AccountCircleIcon sx={{ color: '#FFF' }} />}, //,path: '/perfil' },
+        { text: 'Mi Perfil', icon: <AccountCircleIcon sx={{ color: '#FFF' }} /> },
         { text: 'Ofertas', icon: <BusinessCenterIcon sx={{ color: '#FFF' }} />, path: '/ofertas' },
         { text: 'Empresas', icon: <BusinessIcon sx={{ color: '#FFF' }} />, path: '/empresas' },
-        { text: 'Estadísticas', icon: <BarChartIcon sx={{ color: '#FFF' }} />},//, path: '/estadisticas' },
+        { text: 'Estadísticas', icon: <BarChartIcon sx={{ color: '#FFF' }} /> },
         { text: 'Historial Postulaciones', icon: <HistoryIcon sx={{ color: '#FFF' }} />, path: '/historial' },
     ];
 
     const renderSidebarContent = () => (
         <Box sx={{ width: '250px', padding: '16px', marginTop: 2 }}>
-            {/* Logo y título */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginBottom: 1 }}>
                 <Box
                     component="img"
@@ -64,11 +63,7 @@ function Sidebar() {
             <Typography variant="subtitle2" sx={{ fontSize: { xs: '0.9rem', md: '0.9rem' }, color: '#BBB', marginBottom: 2 }}>
                 Departamento de Informática USM
             </Typography>
-
-            {/* Espacio entre el título y el menú */}
-            <Box sx={{ marginBottom: 3 }} /> {/* Aquí se agrega un espacio extra */}
-
-            {/* Menú */}
+            <Box sx={{ marginBottom: 3 }} />
             <List>
                 {menuItems.map((item, index) => (
                     <ListItem
@@ -93,13 +88,11 @@ function Sidebar() {
 
     return (
         <>
-            {/* Sidebar siempre visible en pantallas medianas y grandes */}
             {!isSmallScreen ? (
                 <Box sx={{ width: '250px', backgroundColor: '#1a1a1a', color: '#FFF', height: '100vh', position: 'fixed' }}>
                     {renderSidebarContent()}
                 </Box>
             ) : (
-                // Drawer para pantallas pequeñas
                 <Drawer
                     anchor="left"
                     open={isOpen}
@@ -113,18 +106,16 @@ function Sidebar() {
                 </Drawer>
             )}
 
-            {/* Botón de menú para pantallas pequeñas */}
             {isSmallScreen && (
                 <Box
                     sx={{
-                        position: 'fixed',
-                        top: '20px',
+                        position: 'sticky',
+                        marginTop: '20px',
                         left: '20px',
                         zIndex: 1300,
                     }}
-                    onClick={handleToggle}
                 >
-                    <MenuIconButton />
+                    <MenuIconButton open={isOpen} onClick={handleToggle} />
                 </Box>
             )}
         </>

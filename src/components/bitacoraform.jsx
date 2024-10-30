@@ -190,8 +190,9 @@ function BitacoraForm() {
                     variant="contained"
                     color="primary"
                     sx={{
-                        backgroundColor: '#FF5722',
-                        ':hover': { backgroundColor: '#E64A19' },
+                        backgroundColor: '#478a0a',
+                        fontWeight: 'bold',
+                        ':hover': { backgroundColor: '#639d2f' },
                         padding: '10px 20px',
                     }}
                     onClick={handleOpenDialog}

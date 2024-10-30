@@ -27,6 +27,7 @@ function Dashboard() {
                         onClick={() => navigate('/ofertas')} 
                         sx={{
                             backgroundColor: '#FF5722',
+                            fontWeight: 'bold',
                             color: '#FFF',
                             width: '150px',
                             '&:hover': { backgroundColor: '#ff7043' }

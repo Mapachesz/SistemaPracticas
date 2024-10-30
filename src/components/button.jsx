@@ -7,7 +7,7 @@ function CustomButton({ text, onClick, variant = 'contained', color = 'primary' 
             variant={variant}
             color={color}
             onClick={onClick}
-            sx={{ margin: '10px' }} // Puedes usar sx para estilos en línea en MUI
+            sx={{ margin: '10px' }} 
         >
             {text}
         </Button>
