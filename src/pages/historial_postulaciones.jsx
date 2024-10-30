@@ -69,8 +69,7 @@ function HistorialPostulaciones() {
                                     background: '#333',
                                     padding: { xs: '16px', md: '20px' },
                                     borderRadius: '10px',
-                                    textAlign: 'left',
-                                    maxWidth: { xs: '100%', md: '600px' },
+                                    maxWidth: { xs: '100%', md: 'auto' },
                                     margin: '0 auto'
                                 }}
                             >
