@@ -13,7 +13,8 @@ module.exports = (_, argv) => ({
       filename: '[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      title: 'Interfaz energética'
+      title: 'Sistema de Prácticas',
+      favicon: './src/assets/favicon-96x96.png' // Agrega esta línea
     })
   ],
   resolve: {
@@ -40,7 +41,11 @@ module.exports = (_, argv) => ({
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader'
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+
           }
         ]
       }
