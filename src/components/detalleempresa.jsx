@@ -111,6 +111,7 @@ function DetalleEmpresa() {
                         sx={{ 
                             fontWeight: 'bold', 
                             fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                            maxWidth: { xs: '100%', md: 'auto' },
                             textAlign: { xs: 'center', md: 'left' }
                         }}
                     >                   

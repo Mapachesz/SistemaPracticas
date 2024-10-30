@@ -80,6 +80,7 @@ function DetalleOferta() {
                     <Box sx={{
                             backgroundColor: '#333',
                             padding: { xs: '16px', md: '20px' },
+                            maxWidth: { xs: '100%', md: 'auto' },
                             borderRadius: '8px',
                             marginBottom: '20px',
                         }}
@@ -108,6 +109,7 @@ function DetalleOferta() {
                     <Box sx={{
                             backgroundColor: '#333',
                             padding: { xs: '16px', md: '20px' },
+                            maxWidth: { xs: '100%', md: 'auto' },
                             borderRadius: '8px',
                             marginBottom: '20px',
                         }}
