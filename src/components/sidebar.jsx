@@ -73,6 +73,7 @@ function Sidebar() {
                         to={item.path}
                         onClick={handleClose}
                         sx={{
+                            backgroundColor: location.pathname === item.path ? '#ff5757' : 'transparent', // Color de activación
                             '&:hover': {
                                 backgroundColor: '#ff5757',
                             },

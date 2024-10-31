@@ -12,16 +12,18 @@ import {
     DialogTitle,
     Snackbar,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function BitacoraForm() {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const navigate = useNavigate();
 
     const [openDialog, setOpenDialog] = useState(false);
+    const [openCancelDialog, setOpenCancelDialog] = useState(false); // Estado para el diálogo de confirmación de cancelación
     const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [openErrorSnackbar, setOpenErrorSnackbar] = useState(false); // Para el mensaje de error
+    const [openErrorSnackbar, setOpenErrorSnackbar] = useState(false);
 
-    // Estados para los campos del formulario
     const [horaInicio, setHoraInicio] = useState('');
     const [horasColacion, setHorasColacion] = useState('');
     const [horaTermino, setHoraTermino] = useState('');
@@ -42,13 +44,11 @@ function BitacoraForm() {
     };
 
     const handleConfirmSave = () => {
-        // Verificar si hay campos vacíos
         if (!horaInicio || !horasColacion || !horaTermino || !fecha || !trabajoRealizado || !trabajoPorHacer) {
-            setOpenErrorSnackbar(true); // Muestra mensaje de error
-            return; // Detiene la ejecución si hay campos vacíos
+            setOpenErrorSnackbar(true);
+            return;
         }
 
-        // Reiniciar los campos del formulario
         setHoraInicio('');
         setHorasColacion('');
         setHoraTermino('');
@@ -62,6 +62,21 @@ function BitacoraForm() {
 
     const handleCloseSnackbar = () => {
         setOpenSnackbar(false);
+    };
+
+    // Maneja la apertura y cierre del diálogo de confirmación de cancelación
+    const handleOpenCancelDialog = () => {
+        setOpenCancelDialog(true);
+    };
+
+    const handleCloseCancelDialog = () => {
+        setOpenCancelDialog(false);
+    };
+
+    // Función para confirmar la cancelación y redirigir al dashboard
+    const handleConfirmCancel = () => {
+        setOpenCancelDialog(false);
+        navigate('/dashboard');
     };
 
     return (
@@ -184,8 +199,21 @@ function BitacoraForm() {
                 }}
             />
 
-            {/* Botón de guardar */}
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {/* Botones de guardar y cancelar */}
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    sx={{
+                        backgroundColor: '#d32f2f',
+                        fontWeight: 'bold',
+                        ':hover': { backgroundColor: '#f44336' },
+                        padding: '10px 20px',
+                    }}
+                    onClick={handleOpenCancelDialog} // Abre el diálogo de confirmación de cancelación
+                >
+                    CANCELAR
+                </Button>
                 <Button
                     variant="contained"
                     color="primary"
@@ -201,7 +229,7 @@ function BitacoraForm() {
                 </Button>
             </Box>
 
-            {/* Confirmar acción */}
+            {/* Diálogo de confirmación de guardado */}
             <Dialog open={openDialog} onClose={handleCloseDialog}>
                 <DialogTitle>Confirmación</DialogTitle>
                 <DialogContent>
@@ -219,7 +247,25 @@ function BitacoraForm() {
                 </DialogActions>
             </Dialog>
 
-            {/* Mensaje de éxito */}
+            {/* Diálogo de confirmación de cancelación */}
+            <Dialog open={openCancelDialog} onClose={handleCloseCancelDialog}>
+                <DialogTitle>Confirmación</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        ¿Está seguro que desea cancelar el registro de la bitácora?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseCancelDialog} color="secondary">
+                        No
+                    </Button>
+                    <Button onClick={handleConfirmCancel} color="primary" autoFocus>
+                        Sí, cancelar
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* Mensajes de éxito y error como antes */}
             <Snackbar
                 open={openSnackbar}
                 autoHideDuration={4000}
@@ -227,11 +273,9 @@ function BitacoraForm() {
                 message="Bitácora guardada exitosamente"
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
             />
-
-            {/* Mensaje de error */}
             <Snackbar
                 open={openErrorSnackbar}
-                autoHideDuration={4000}
+                autoHideDuration={3000}
                 onClose={handleCloseErrorSnackbar}
                 message="Por favor, complete todos los campos."
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
