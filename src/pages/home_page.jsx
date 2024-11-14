@@ -12,7 +12,7 @@ function HomePage() {
     };
 
     const handleCompanyClick = () => {
-        alert('Iniciar sesión como Empresa');
+        navigate('/dashboard_empresas');
     };
 
     return (
