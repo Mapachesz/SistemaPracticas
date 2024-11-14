@@ -11,6 +11,10 @@ import PostulacionExitosa from './PostulacionExistosa';
 import DetalleEmpresa from './detalleempresa';
 import HistorialPostulaciones from '../pages/historial_postulaciones';
 import DashboardEmpresa from '../pages/dashboard_empresas';
+import OfertasEmpresas from '../pages/oferta_empresa';
+import LoginEmpresa from '../pages/loginempresa';
+import DatosEmpresa from './DatosEmpresa';
+import PerfilEmpresa from '../pages/PerfilEmpresa';
 
 const Layout = () => {
   return (
@@ -26,7 +30,14 @@ const Layout = () => {
             <Route path="/detalle-empresa/:empresaId" element={<DetalleEmpresa />} />
             <Route path="/historial" element={<HistorialPostulaciones />} />
 
+
             <Route path="/dashboard_empresas" element={<DashboardEmpresa />} /> 
+            <Route path="/ofertas_empresas" element={<OfertasEmpresas />} />  {/* Ruta para ver ofertas */}
+            <Route path="/login_empresa" element={<LoginEmpresa />} />
+            <Route path="/datos_empresa" element={<DatosEmpresa />} />
+            <Route path="/perfil_empresa" element={<PerfilEmpresa />} />
+
+
           </Routes>
     </BrowserRouter>
   )

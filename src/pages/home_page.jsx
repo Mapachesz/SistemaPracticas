@@ -12,7 +12,7 @@ function HomePage() {
     };
 
     const handleCompanyClick = () => {
-        navigate('/dashboard_empresas');
+        navigate('/login_empresa');
     };
 
     return (

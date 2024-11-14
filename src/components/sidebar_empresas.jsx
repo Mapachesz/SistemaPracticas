@@ -29,7 +29,7 @@ function SidebarEmpresa() {
     };
 
     const menuItems = [
-        { text: 'Perfil Empresa', icon: <AccountCircleIcon sx={{ color: '#FFF' }} />, path: '/perfilempresa' },
+        { text: 'Perfil Empresa', icon: <AccountCircleIcon sx={{ color: '#FFF' }} />, path: '/perfil_empresa' },
         { text: 'Crear Oferta', icon: <SchoolIcon sx={{ color: '#FFF' }} />, path: '/dashboard_empresas' },
         { text: 'Mis Ofertas', icon: <BusinessCenterIcon sx={{ color: '#FFF' }} />, path: '/ofertas_empresas' },
         { text: 'Historial Postulantes', icon: <HistoryIcon sx={{ color: '#FFF' }} />, path: '/historialpostulantes' },

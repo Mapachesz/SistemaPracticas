@@ -10,19 +10,6 @@ function BitacoraPage() {
             <Sidebar />
             <Box sx={{ flex: 1, padding: { xs: '0px', md: '20px' }, color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
-                <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
-                <Typography 
-                        variant="h4" 
-                        gutterBottom 
-                        sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
-                            textAlign: { xs: 'center', md: 'left' }
-                        }}
-                    >
-                    Bitácora
-                </Typography>
-                
                 <Box
                     sx={{
                         display: 'flex',
@@ -53,7 +40,6 @@ function BitacoraPage() {
                     </Box>
                 </Box>
             </Box>
-        </Box>
     );
 }
 
