@@ -7,6 +7,7 @@ function LoginEstudiante() {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+
     const navigate = useNavigate();
 
     // Verificar si el correo tiene el dominio @inf.utfsm.cl
@@ -159,7 +160,7 @@ function LoginEstudiante() {
                     sx={{
                         marginTop: 2,
                         backgroundColor: '#FFA500',
-                        color: '#000',
+                        color: '#fff',
                         fontWeight: 'bold',
                         '&:hover': {
                             backgroundColor: '#FFD700',
@@ -167,6 +168,25 @@ function LoginEstudiante() {
                     }}
                 >
                     Iniciar Sesión
+                </Button>
+
+                {/* Botón de Regresar */}
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    fullWidth
+                    sx={{
+                        backgroundColor: '#FF5722',
+                        marginTop: 2,
+                        color: '#fff',
+                        fontWeight:'bold',
+                        '&:hover': {
+                            backgroundColor: '#ff7043',
+                        },
+                    }}
+                    onClick={() => navigate('/')}
+                >
+                    Regresar
                 </Button>
             </Box>
         </Box>

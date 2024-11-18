@@ -201,7 +201,7 @@ function LoginEmpresa() {
                         sx={{
                             marginTop: 2,
                             backgroundColor: '#FFA500',
-                            color: '#000',
+                            color: '#fff',
                             fontWeight: 'bold',
                             '&:hover': {
                                 backgroundColor: '#FFD700',
@@ -209,6 +209,24 @@ function LoginEmpresa() {
                         }}
                     >
                         Iniciar Sesión
+                    </Button>
+                {/* Botón de Regresar */}
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        fullWidth
+                        sx={{
+                            backgroundColor: '#FF5722',
+                            marginTop: 2,
+                            color: '#fff',
+                            fontWeight:'bold',
+                            '&:hover': {
+                                backgroundColor: '#ff7043',
+                            },
+                        }}
+                        onClick={() => navigate('/')}
+                    >
+                        Regresar
                     </Button>
                 </Box>
             ) : (
@@ -329,7 +347,7 @@ function LoginEmpresa() {
                         sx={{
                             marginTop: 2,
                             backgroundColor: '#FFA500',
-                            color: '#000',
+                            color: '#fff',
                             fontWeight: 'bold',
                             '&:hover': {
                                 backgroundColor: '#FFD700',
@@ -338,6 +356,7 @@ function LoginEmpresa() {
                     >
                         Registrarse
                     </Button>
+                    
                 </Box>
             )}
         </Box>

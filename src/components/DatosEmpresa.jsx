@@ -56,7 +56,7 @@ function DatosEmpresa() {
 
     const handleConfirmCancel = () => {
         // Redirige al login en caso de cancelar el registro
-        navigate('\loginempresa');
+        navigate('/login_empresa');
     };
 
     const handleCloseSaveDialog = () => {
@@ -361,24 +361,30 @@ function DatosEmpresa() {
                         variant="contained"
                         color="primary"
                         sx={{
-                            backgroundColor: '#FFD700',
+                            backgroundColor: '#FFA500',
+                            fontWeight:'bold',
                             '&:hover': {
-                                backgroundColor: '#FFA500',
+                                backgroundColor: '#FFC065',
                             },
+                            flex: 1,  // Esto hace que el botón de guardar ocupe el mismo espacio
+                            marginRight: 2, // Añade un pequeño espacio entre los botones
                         }}
                     >
                         Guardar
                     </Button>
 
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         onClick={handleCancel}
                         sx={{
-                            backgroundColor: '#FFF',
+                            backgroundColor: '#FF5722',
+                            color: '#fff',
+                            fontWeight: 'bold',
                             '&:hover': {
-                                backgroundColor: '#FFD700',
+                                backgroundColor: '#ff7043',
                             },
+                            flex: 1,  // Esto hace que el botón de cancelar ocupe el mismo espacio
                         }}
                     >
                         Cancelar
