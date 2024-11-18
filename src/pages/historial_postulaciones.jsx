@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../components/sidebar";
 import Header from "../components/header";
-import { Box, Typography, Button, Stack } from "@mui/material";
+import { Box, Typography, Button, Stack, Menu, MenuItem, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 function HistorialPostulaciones() {
     const navigate = useNavigate();
@@ -42,27 +43,153 @@ function HistorialPostulaciones() {
         }
     ];
 
+    const [menuAnchor, setMenuAnchor] = useState(null);
+    const [filtros, setFiltros] = useState({
+        estado: '',
+        mes: '',
+    });
+
+    const handleMenuOpen = (event) => {
+        setMenuAnchor(event.currentTarget);
+    };
+
+    const handleMenuClose = () => {
+        setMenuAnchor(null);
+    };
+
+    const handleFilterChange = (e) => {
+        const { name, value } = e.target;
+        setFiltros((prevFilters) => ({
+            ...prevFilters,
+            [name]: value
+        }));
+    };
+
+    const filteredPostulaciones = postulacionesData.filter((postulacion) => {
+        // Convertir fechaPostulacion a un objeto Date
+        const postDate = new Date(postulacion.fechaPostulacion.split('/').reverse().join('-')); // Convertir formato dd/mm/yyyy a yyyy-mm-dd
+        const postMonth = postDate.getMonth() + 1; // Mes en base a 1 (enero es 1)
+        
+        // Comparar el estado y el mes
+        const stateMatch = filtros.estado ? postulacion.estadoPostulacion === filtros.estado : true;
+        const monthMatch = filtros.mes ? postMonth === parseInt(filtros.mes) : true;
+        
+        return stateMatch && monthMatch;
+    });
+    
+
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', background: '#121212' }}>
             <Sidebar />
             <Box sx={{ flex: 1, padding: { xs: '10px', md: '20px' }, color: '#FFF', marginLeft: { md: '250px' } }}>
                 <Header />
                 <Box sx={{ flex: 1, padding: { xs: '20px', md: '40px' }, color: '#FFF' }}>
-                    <Typography 
-                        variant="h4" 
-                        gutterBottom 
-                        sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: { xs: '1.8rem', md: '2.125rem' }, 
+                    <Typography
+                        variant="h4"
+                        gutterBottom
+                        sx={{
+                            fontWeight: 'bold',
+                            fontSize: { xs: '1.8rem', md: '2.125rem' },
                             textAlign: { xs: 'center', md: 'left' }
                         }}
                     >
                         Historial Postulaciones
                     </Typography>
 
-                    {/* Lista de Postulaciones */}
+                    {/* Botón de filtros compactos */}
+                    <Box sx={{ marginBottom: '20px', textAlign: 'right' }}>
+                        <Button
+                            variant="contained"
+                            startIcon={<FilterListIcon />}
+                            sx={{
+                                backgroundColor: '#FF5722',
+                                color: '#FFF',
+                                '&:hover': { backgroundColor: '#ff7043' }
+                            }}
+                            onClick={handleMenuOpen}
+                        >
+                            Filtrar
+                        </Button>
+                        <Menu
+                            anchorEl={menuAnchor}
+                            open={Boolean(menuAnchor)}
+                            onClose={handleMenuClose}
+                            sx={{
+                                '& .MuiPaper-root': {
+                                    backgroundColor: '#d0d3d4',
+                                    color: '#FFF',
+                                    padding: '15px',
+                                    borderRadius: '10px',
+                                },
+                            }}
+                        >
+                            <TextField
+                                label="Estado"
+                                select
+                                name="estado"
+                                value={filtros.estado}
+                                onChange={handleFilterChange}
+                                sx={{
+                                    backgroundColor: '#FFF',
+                                    borderRadius: '5px',
+                                    marginBottom: '10px',
+                                    width: '100%',
+                                    color: '#333',
+                                }}
+                            >
+                                <MenuItem value="">Todos</MenuItem>
+                                <MenuItem value="En Proceso">En Proceso</MenuItem>
+                                <MenuItem value="Rechazado">Rechazado</MenuItem>
+                                <MenuItem value="Aceptado">Aceptado</MenuItem>
+                            </TextField>
+
+                            <TextField
+                                label="Mes"
+                                select
+                                name="mes"
+                                value={filtros.mes}
+                                onChange={handleFilterChange}
+                                sx={{
+                                    backgroundColor: '#FFF',
+                                    borderRadius: '5px',
+                                    marginBottom: '10px',
+                                    width: '100%',
+                                    color: '#333',
+                                }}
+                            >
+                                <MenuItem value="">Todos</MenuItem>
+                                <MenuItem value="1">Enero</MenuItem>
+                                <MenuItem value="2">Febrero</MenuItem>
+                                <MenuItem value="3">Marzo</MenuItem>
+                                <MenuItem value="4">Abril</MenuItem>
+                                <MenuItem value="5">Mayo</MenuItem>
+                                <MenuItem value="6">Junio</MenuItem>
+                                <MenuItem value="7">Julio</MenuItem>
+                                <MenuItem value="8">Agosto</MenuItem>
+                                <MenuItem value="9">Septiembre</MenuItem>
+                                <MenuItem value="10">Octubre</MenuItem>
+                                <MenuItem value="11">Noviembre</MenuItem>
+                                <MenuItem value="12">Diciembre</MenuItem>
+                            </TextField>
+
+                            <Button
+                                variant="contained"
+                                fullWidth
+                                sx={{
+                                    backgroundColor: '#FF5722',
+                                    color: '#FFF',
+                                    marginTop: '10px',
+                                }}
+                                onClick={handleMenuClose}
+                            >
+                                Aplicar Filtros
+                            </Button>
+                        </Menu>
+                    </Box>
+
+                    {/* Lista de Postulaciones filtradas */}
                     <Stack spacing={2}>
-                        {postulacionesData.map((postulacion) => (
+                        {filteredPostulaciones.map((postulacion) => (
                             <Box
                                 key={postulacion.id}
                                 sx={{
@@ -94,19 +221,28 @@ function HistorialPostulaciones() {
 
                     {/* Botón de "Ofertas" */}
                     <Box display="flex" justifyContent={{ xs: 'center', md: 'flex-end' }} marginTop="20px">
-                        <Button
-                            variant="contained"
-                            onClick={() => navigate('/ofertas')}
-                            sx={{
-                                backgroundColor: '#FF5722',
-                                color: '#FFF',
-                                width: { xs: '100%', sm: '150px' },
-                                fontWeight: 'bold',
-                                '&:hover': { backgroundColor: '#ff7043' }
-                            }}
-                        >
-                            Ofertas
-                        </Button>
+                        <Box sx={{
+                            position: 'sticky',
+                            bottom: '20px',
+                            zIndex: 10, // Asegura que el botón esté sobre otros elementos
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'center', // Centra el botón en pantallas pequeñas
+                        }}>
+                            <Button
+                                variant="contained"
+                                onClick={() => navigate('/ofertas')}
+                                sx={{
+                                    backgroundColor: '#FF5722',
+                                    color: '#FFF',
+                                    '&:hover': { backgroundColor: '#ff7043' },
+                                    padding: '10px 20px',
+                                    width: 'auto',
+                                }}
+                            >
+                                Ver todas las ofertas
+                            </Button>
+                        </Box>
                     </Box>
                 </Box>
             </Box>

@@ -2,7 +2,7 @@ import React from 'react';
 import CustomButton from '../components/button';
 import { Stack, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import logoinf from '../assets/logoinf.png'; // Importa la imagen desde tu carpeta de assets
+import logoinf from '../assets/logoinf.png'; 
 
 function HomePage() {
     const navigate = useNavigate();
