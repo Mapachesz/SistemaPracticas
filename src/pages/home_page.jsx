@@ -8,7 +8,7 @@ function HomePage() {
     const navigate = useNavigate();
 
     const handleStudentClick = () => {
-        navigate('/dashboard');
+        navigate('/login_estudiante');
     };
 
     const handleCompanyClick = () => {

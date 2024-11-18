@@ -15,6 +15,7 @@ import OfertasEmpresas from '../pages/oferta_empresa';
 import LoginEmpresa from '../pages/loginempresa';
 import DatosEmpresa from './DatosEmpresa';
 import PerfilEmpresa from '../pages/PerfilEmpresa';
+import LoginEstudiante from '../pages/loginestudiante';
 
 const Layout = () => {
   return (
@@ -29,7 +30,7 @@ const Layout = () => {
             <Route path="/postulacion-exitosa" element={<PostulacionExitosa />} />
             <Route path="/detalle-empresa/:empresaId" element={<DetalleEmpresa />} />
             <Route path="/historial" element={<HistorialPostulaciones />} />
-
+            <Route path="/login_estudiante" element={<LoginEstudiante />} />
 
             <Route path="/dashboard_empresas" element={<DashboardEmpresa />} /> 
             <Route path="/ofertas_empresas" element={<OfertasEmpresas />} />  {/* Ruta para ver ofertas */}
