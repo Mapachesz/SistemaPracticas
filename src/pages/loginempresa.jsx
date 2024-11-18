@@ -37,7 +37,7 @@ function LoginEmpresa() {
             return;
         }
         setError('');
-        alert('Inicio de sesión exitoso.');
+        navigate('/dashboard_empresas');
     };
 
     const handleRegisterSubmit = (event) => {

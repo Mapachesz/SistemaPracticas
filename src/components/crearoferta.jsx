@@ -91,6 +91,7 @@ function OfertaForm() {
                 maxWidth: '900px',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
                 margin: '0 auto',
+                border: '2px solid #d0d3d4', // Borde
             }}
         >
             <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#FFF' }}>
@@ -253,7 +254,7 @@ function OfertaForm() {
                     sx={{backgroundColor: '#d32f2f', fontWeight: 'bold', color: '#FFF', padding: '10px 20px'}}
                     onClick={handleOpenCancelDialog}
                 >
-                    CANCELAR
+                    Borrar
                 </Button>
                 <Button
                     variant="contained"
