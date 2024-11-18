@@ -76,7 +76,8 @@ function DatosEmpresa() {
         <Box
             sx={{
                 backgroundColor: '#000',
-                minHeight: '100vh',
+                minHeight: '710px',
+                width: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -88,7 +89,7 @@ function DatosEmpresa() {
                 component="form"
                 onSubmit={handleSubmit}
                 sx={{
-                    width: '100%',
+                    width: {md: '100%', xs:'80%'},
                     maxWidth: '600px',
                     padding: 4,
                     backgroundColor: '#333',
