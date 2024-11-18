@@ -16,6 +16,7 @@ import LoginEmpresa from '../pages/loginempresa';
 import DatosEmpresa from './DatosEmpresa';
 import PerfilEmpresa from '../pages/PerfilEmpresa';
 import LoginEstudiante from '../pages/loginestudiante';
+import HistorialPostulantes from '../pages/historialpostulantes';
 
 const Layout = () => {
   return (
@@ -37,6 +38,7 @@ const Layout = () => {
             <Route path="/login_empresa" element={<LoginEmpresa />} />
             <Route path="/datos_empresa" element={<DatosEmpresa />} />
             <Route path="/perfil_empresa" element={<PerfilEmpresa />} />
+            <Route path="/historialpostulantes" element={<HistorialPostulantes />} />
 
 
           </Routes>
